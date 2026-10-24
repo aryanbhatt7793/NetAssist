@@ -1,0 +1,43 @@
+NetAssist — Troubleshooting Log
+
+Scenario 1: Outdated Destination IP Address
+
+Objective: Reproduce and diagnose a connectivity failure caused by an outdated destination IP address.
+
+Network Setup
+
+PC0 IP address: 192.168.1.10
+
+PC1 original IP address: 192.168.1.11
+
+Subnet mask: 255.255.255.0
+
+Network device: Cisco 2960 switch
+
+Test Procedure
+
+Verify connectivity by pinging 192.168.1.11 from PC0.
+
+Change PC1's IP address to 192.168.1.50.
+
+Ping the old address, 192.168.1.11, from PC0.
+
+Observe the failed ping and 100% packet loss.
+
+Restore PC1's address to 192.168.1.11.
+
+Ping the restored address to verify connectivity.
+
+Observed Symptoms
+The ping to the old destination address failed while PC1 was configured with a different IP address.
+
+Root Cause
+PC0 was attempting to reach the previous IP address, which was no longer assigned to PC1.
+
+Resolution
+Restore PC1's original address or update the destination used by PC0 to the correct current address.
+
+Verification
+The original ping should succeed after restoring PC1's address to 192.168.1.11.
+
+Tools Used: Cisco Packet Tracer
